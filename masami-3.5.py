@@ -32,7 +32,7 @@ def getAllImageLink(url):
             link = image.get('src')
             newLink = re.sub(r'thumb', 'raw', link)
             imageName = link[-15:]
-            fileSavePath = './yuiAragaki/%s' % imageName
+            fileSavePath = './aragaki/%s' % imageName
             with open(fileSavePath, mode="wb") as f:
                 # 将jpg图片写入在目标文件夹创建的文件
                 f.write(requests.get(newLink, headers=headers).content)
@@ -42,7 +42,7 @@ def getAllImageLink(url):
 def startSpider(url):
     # 启动爬虫
     try:
-        os.mkdir("./yuiAragaki/")
+        os.mkdir("./aragaki/")
         print("目录创建成功")
     except FileExistsError:
         print("目录已经存在")
